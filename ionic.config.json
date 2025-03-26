@@ -1,0 +1,7 @@
+{
+  "name": "evacadmin",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
