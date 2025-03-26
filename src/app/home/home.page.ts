@@ -1,12 +1,22 @@
-import { Component } from '@angular/core';
-import { IonHeader, IonToolbar, IonTitle, IonContent } from '@ionic/angular/standalone';
+import { Component, AfterViewInit } from '@angular/core';
+import { IonicModule } from '@ionic/angular';
+import { Browser } from '@capacitor/browser';
 
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
-  imports: [IonHeader, IonToolbar, IonTitle, IonContent],
+  standalone: true,
+  imports: [IonicModule],
 })
-export class HomePage {
+export class HomePage implements AfterViewInit {
   constructor() {}
+
+  async ngAfterViewInit() {
+    await Browser.open({
+      url: 'https://www.komvos.gr/evac/admin/', // Replace with your desired URL
+      toolbarColor: '#ffffff',
+      presentationStyle: 'popover',   // iOS-specific
+    });
+  }
 }
